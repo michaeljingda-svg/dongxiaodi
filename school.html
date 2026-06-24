@@ -416,6 +416,84 @@
       display: none;
     }
 
+    /* 纠错入口 */
+    .report-bar {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid #21262d;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .report-bar span { font-size: 12px; color: #8b949e; }
+
+    .report-link {
+      font-size: 12px;
+      color: #8b949e;
+      background: none;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 3px 10px;
+      cursor: pointer;
+    }
+
+    .report-link:hover { color: #e6edf3; border-color: #8b949e; }
+
+    /* 纠错弹窗选项 */
+    .error-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .error-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #c9d1d9;
+      cursor: pointer;
+    }
+
+    .error-option input { accent-color: #1f6feb; }
+
+    /* 教授 Tab 空状态 */
+    .professor-empty {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+
+    .professor-empty .icon { font-size: 48px; margin-bottom: 16px; }
+    .professor-empty h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #e6edf3; }
+    .professor-empty p { font-size: 13px; color: #8b949e; margin-bottom: 24px; line-height: 1.6; }
+
+    /* 教授表单 */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-label { font-size: 12px; color: #8b949e; }
+
+    .form-input {
+      background-color: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #e6edf3;
+      font-size: 13px;
+      padding: 8px 12px;
+      outline: none;
+      font-family: inherit;
+      width: 100%;
+    }
+
+    .form-input:focus { border-color: #1f6feb; }
+
     /* 动态 Tab */
     .post-box {
       background-color: #161b22;
@@ -728,8 +806,11 @@
         </div>
 
         <button class="rate-btn" onclick="openModal()">给这个食堂打分</button>
-
         <div class="review-list" id="detail-reviews"></div>
+        <div class="report-bar">
+          <span>信息有误？</span>
+          <button class="report-link" onclick="openReportModal('食堂')">点此纠错</button>
+        </div>
       </div>
 
     </div>
@@ -838,15 +919,23 @@
         </div>
         <button class="rate-btn" onclick="openDormModal()">给这栋宿舍打分</button>
         <div class="review-list" id="dorm-detail-reviews"></div>
+        <div class="report-bar">
+          <span>信息有误？</span>
+          <button class="report-link" onclick="openReportModal('宿舍')">点此纠错</button>
+        </div>
       </div>
 
     </div>
 
     <!-- 教授 Tab -->
     <div class="tab-panel" id="tab-professor">
-      <div class="coming-soon">
+      <div class="professor-empty">
         <div class="icon">👨‍🏫</div>
-        <p>教授评分即将上线</p>
+        <h3>还没有教授评价</h3>
+        <p>成为第一个评价哥大教授的人<br>提交后经审核即可上线</p>
+        <button class="btn btn-primary" style="font-size:14px;padding:10px 24px;" onclick="openProfModal()">
+          + 添加教授评价
+        </button>
       </div>
     </div>
 
@@ -859,6 +948,65 @@
     </div>
 
   </main>
+
+  <!-- 纠错弹窗 -->
+  <div class="modal-overlay" id="reportModal">
+    <div class="modal">
+      <div class="modal-title" id="report-modal-title">纠错</div>
+      <div class="error-options">
+        <label class="error-option"><input type="radio" name="errType" value="name"> 名称有误</label>
+        <label class="error-option"><input type="radio" name="errType" value="rating"> 评分异常（疑似刷分）</label>
+        <label class="error-option"><input type="radio" name="errType" value="fake"> 评价内容不实</label>
+        <label class="error-option"><input type="radio" name="errType" value="other"> 其他问题</label>
+      </div>
+      <textarea class="form-input" style="height:72px;resize:none;margin-bottom:8px;" placeholder="补充说明（选填）…"></textarea>
+      <div class="modal-warning">⚠️ 感谢反馈，我们会在 48 小时内核查</div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeReportModal()">取消</button>
+        <button class="btn btn-primary" onclick="submitReport()">提交</button>
+      </div>
+      <div class="modal-success" id="reportSuccess">✅ 已收到，感谢你的纠错反馈！</div>
+    </div>
+  </div>
+
+  <!-- 添加教授弹窗 -->
+  <div class="modal-overlay" id="profModal">
+    <div class="modal" style="width:440px;">
+      <div class="modal-title">添加教授评价</div>
+      <div class="form-group">
+        <div class="form-label">教授姓名 *</div>
+        <input class="form-input" type="text" placeholder="如：Adam Jermyn" id="prof-name">
+      </div>
+      <div class="form-group">
+        <div class="form-label">所在院系 *</div>
+        <input class="form-input" type="text" placeholder="如：计算机科学系" id="prof-dept">
+      </div>
+      <div class="form-group">
+        <div class="form-label">教授的课程（选填）</div>
+        <input class="form-input" type="text" placeholder="如：COMS 4995" id="prof-course">
+      </div>
+      <div class="form-group">
+        <div class="form-label">评分 *</div>
+        <div class="star-picker" id="profStarPicker">
+          <button data-val="1">⭐</button>
+          <button data-val="2">⭐</button>
+          <button data-val="3">⭐</button>
+          <button data-val="4">⭐</button>
+          <button data-val="5">⭐</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-label">评价内容 *</div>
+        <textarea class="form-input" style="height:80px;resize:none;" placeholder="上课风格、难度、推荐度……" id="prof-review"></textarea>
+      </div>
+      <div class="modal-warning">提交后经管理员审核通过即上线，不可修改</div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeProfModal()">取消</button>
+        <button class="btn btn-primary" onclick="submitProf()">提交审核</button>
+      </div>
+      <div class="modal-success" id="profSuccess">✅ 已提交！审核通过后将上线，感谢贡献</div>
+    </div>
+  </div>
 
   <!-- 评分弹窗 -->
   <div class="modal-overlay" id="rateModal">
@@ -1109,6 +1257,77 @@
       document.getElementById('modal-title').textContent = '给这栋宿舍楼打分';
       openModal();
     }
+
+    // 纠错弹窗
+    function openReportModal(type) {
+      document.getElementById('report-modal-title').textContent = type + ' · 纠错';
+      document.querySelectorAll('input[name=errType]').forEach(r => r.checked = false);
+      document.querySelector('#reportModal textarea').value = '';
+      document.getElementById('reportSuccess').style.display = 'none';
+      document.querySelector('#reportModal .modal-footer').style.display = 'flex';
+      document.getElementById('reportModal').classList.add('open');
+    }
+
+    function closeReportModal() {
+      document.getElementById('reportModal').classList.remove('open');
+    }
+
+    function submitReport() {
+      const selected = document.querySelector('input[name=errType]:checked');
+      if (!selected) { alert('请选择问题类型'); return; }
+      document.querySelector('#reportModal .modal-footer').style.display = 'none';
+      document.getElementById('reportSuccess').style.display = 'block';
+      setTimeout(closeReportModal, 1800);
+    }
+
+    document.getElementById('reportModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('reportModal')) closeReportModal();
+    });
+
+    // 教授弹窗
+    let selectedProfStar = 0;
+
+    document.querySelectorAll('#profStarPicker button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedProfStar = parseInt(btn.dataset.val);
+        document.querySelectorAll('#profStarPicker button').forEach((b, i) => {
+          b.classList.toggle('selected', i < selectedProfStar);
+        });
+      });
+    });
+
+    function openProfModal() {
+      selectedProfStar = 0;
+      document.querySelectorAll('#profStarPicker button').forEach(b => b.classList.remove('selected'));
+      ['prof-name','prof-dept','prof-course','prof-review'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      document.getElementById('profSuccess').style.display = 'none';
+      document.querySelector('#profModal .modal-footer').style.display = 'flex';
+      document.getElementById('profModal').classList.add('open');
+    }
+
+    function closeProfModal() {
+      document.getElementById('profModal').classList.remove('open');
+    }
+
+    function submitProf() {
+      const name = document.getElementById('prof-name').value.trim();
+      const dept = document.getElementById('prof-dept').value.trim();
+      const review = document.getElementById('prof-review').value.trim();
+      if (!name || !dept || !review || !selectedProfStar) {
+        alert('请填写教授姓名、院系、评分和评价内容');
+        return;
+      }
+      document.querySelector('#profModal .modal-footer').style.display = 'none';
+      document.getElementById('profSuccess').style.display = 'block';
+      setTimeout(closeProfModal, 2000);
+    }
+
+    document.getElementById('profModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('profModal')) closeProfModal();
+    });
   </script>
 
 </body>
