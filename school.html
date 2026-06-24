@@ -224,6 +224,198 @@
     .coming-soon .icon { font-size: 40px; margin-bottom: 12px; }
     .coming-soon p { font-size: 14px; }
 
+    /* 食堂列表 */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title { font-size: 15px; font-weight: 600; color: #e6edf3; }
+
+    .add-btn {
+      font-size: 13px;
+      color: #4d94ff;
+      background: none;
+      border: 1px solid #1f6feb;
+      border-radius: 6px;
+      padding: 5px 12px;
+      cursor: pointer;
+    }
+
+    .dining-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .dining-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 8px;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+
+    .dining-card:hover { border-color: #1f6feb; }
+
+    .dining-card-left { display: flex; flex-direction: column; gap: 4px; }
+    .dining-name { font-size: 15px; font-weight: 600; color: #e6edf3; }
+    .dining-meta { font-size: 12px; color: #8b949e; }
+
+    .dining-card-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .dining-rating { text-align: right; }
+    .dining-stars { font-size: 15px; font-weight: 700; color: #f0c040; }
+    .dining-count { font-size: 11px; color: #8b949e; margin-top: 2px; }
+    .dining-arrow { color: #30363d; font-size: 16px; }
+    .dining-card:hover .dining-arrow { color: #4d94ff; }
+
+    /* 食堂详情 */
+    .detail-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #8b949e;
+      font-size: 13px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .detail-back:hover { color: #4d94ff; }
+
+    .detail-hero {
+      background-color: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .detail-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .detail-location { font-size: 13px; color: #8b949e; }
+
+    .detail-score { text-align: right; }
+    .detail-stars { font-size: 28px; font-weight: 800; color: #f0c040; }
+    .detail-count { font-size: 12px; color: #8b949e; margin-top: 4px; }
+
+    .rate-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #1f6feb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 24px;
+      transition: background-color 0.15s;
+    }
+
+    .rate-btn:hover { background-color: #388bfd; }
+
+    .review-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .review-item {
+      background-color: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .review-stars { font-size: 13px; color: #f0c040; letter-spacing: 1px; }
+    .review-content { font-size: 14px; color: #c9d1d9; line-height: 1.6; margin-bottom: 10px; }
+
+    /* 评分弹窗 */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 28px;
+      width: 380px;
+      max-width: 90vw;
+    }
+
+    .modal-title { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+
+    .star-picker {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .star-picker button {
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      opacity: 0.3;
+      transition: opacity 0.1s, transform 0.1s;
+      padding: 0;
+    }
+
+    .star-picker button.selected,
+    .star-picker button:hover { opacity: 1; transform: scale(1.15); }
+
+    .modal textarea {
+      width: 100%;
+      background-color: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #e6edf3;
+      font-size: 13px;
+      padding: 10px;
+      height: 80px;
+      resize: none;
+      outline: none;
+      font-family: inherit;
+      margin-bottom: 8px;
+    }
+
+    .modal-warning { font-size: 11px; color: #8b949e; margin-bottom: 16px; }
+
+    .modal-footer { display: flex; gap: 10px; justify-content: flex-end; }
+
+    .modal-success {
+      text-align: center;
+      padding: 16px 0;
+      color: #3fb950;
+      font-size: 15px;
+      display: none;
+    }
+
     /* 动态 Tab */
     .post-box {
       background-color: #161b22;
@@ -458,10 +650,88 @@
 
     <!-- 食堂 Tab -->
     <div class="tab-panel" id="tab-dining">
-      <div class="coming-soon">
-        <div class="icon">🍽️</div>
-        <p>食堂评分即将上线</p>
+
+      <!-- 食堂列表 -->
+      <div id="dining-list-view">
+        <div class="section-header">
+          <span class="section-title">食堂评分</span>
+          <button class="add-btn">+ 补充一个食堂</button>
+        </div>
+        <div class="dining-list">
+          <div class="dining-card" onclick="showDining('ferris')">
+            <div class="dining-card-left">
+              <div class="dining-name">Ferris Booth Commons</div>
+              <div class="dining-meta">Lerner Hall 一楼</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 4.3</div>
+                <div class="dining-count">41 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+          <div class="dining-card" onclick="showDining('johnjay')">
+            <div class="dining-card-left">
+              <div class="dining-name">John Jay Dining Hall</div>
+              <div class="dining-meta">John Jay Hall 一楼</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 3.8</div>
+                <div class="dining-count">52 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+          <div class="dining-card" onclick="showDining('jjs')">
+            <div class="dining-card-left">
+              <div class="dining-name">JJ's Place</div>
+              <div class="dining-meta">John Jay Hall 地下一层，24小时</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 4.0</div>
+                <div class="dining-count">29 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+          <div class="dining-card" onclick="showDining('chefmike')">
+            <div class="dining-card-left">
+              <div class="dining-name">Chef Mike's Sub Shop</div>
+              <div class="dining-meta">Wien Hall 一楼</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 4.5</div>
+                <div class="dining-count">18 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- 食堂详情 -->
+      <div id="dining-detail-view" style="display:none;">
+        <button class="detail-back" onclick="hideDining()">← 返回食堂列表</button>
+        <div class="detail-hero">
+          <div>
+            <div class="detail-name" id="detail-name"></div>
+            <div class="detail-location" id="detail-location"></div>
+          </div>
+          <div class="detail-score">
+            <div class="detail-stars" id="detail-stars"></div>
+            <div class="detail-count" id="detail-count"></div>
+          </div>
+        </div>
+
+        <button class="rate-btn" onclick="openModal()">给这个食堂打分</button>
+
+        <div class="review-list" id="detail-reviews"></div>
+      </div>
+
     </div>
 
     <!-- 宿舍 Tab -->
@@ -490,7 +760,29 @@
 
   </main>
 
+  <!-- 评分弹窗 -->
+  <div class="modal-overlay" id="rateModal">
+    <div class="modal">
+      <div class="modal-title" id="modal-title">给食堂打分</div>
+      <div class="star-picker" id="starPicker">
+        <button data-val="1">⭐</button>
+        <button data-val="2">⭐</button>
+        <button data-val="3">⭐</button>
+        <button data-val="4">⭐</button>
+        <button data-val="5">⭐</button>
+      </div>
+      <textarea placeholder="写下你的评价（选填）…"></textarea>
+      <div class="modal-warning">⚠️ 提交后不可修改</div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeModal()">取消</button>
+        <button class="btn btn-primary" onclick="submitRating()">提交评价</button>
+      </div>
+      <div class="modal-success" id="modalSuccess">✅ 已提交，感谢你的评价！</div>
+    </div>
+  </div>
+
   <script>
+    // Tab 切换
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -501,6 +793,122 @@
         btn.classList.add('active');
         document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
       });
+    });
+
+    // 食堂数据
+    const diningData = {
+      ferris: {
+        name: 'Ferris Booth Commons',
+        location: 'Lerner Hall 一楼，Broadway & 115th St',
+        stars: '⭐ 4.3',
+        count: '41 条评价',
+        reviews: [
+          { user: '张同学', verified: true, stars: '★★★★★', time: '1 天前', text: '沙拉吧选项很多，pizza 也不错，比 John Jay 强太多了' },
+          { user: '李同学', verified: false, stars: '★★★★', time: '3 天前', text: '价格稍贵，但质量过得去，位置方便' },
+          { user: '王同学', verified: true, stars: '★★★', time: '1 周前', text: '高峰期排队 20 分钟，菜品选项不稳定，看运气' },
+        ]
+      },
+      johnjay: {
+        name: 'John Jay Dining Hall',
+        location: 'John Jay Hall 一楼',
+        stars: '⭐ 3.8',
+        count: '52 条评价',
+        reviews: [
+          { user: '陈同学', verified: false, stars: '★★★', time: '3 小时前', text: '今天 pasta 真的很难吃，建议去 Ferris' },
+          { user: '刘同学', verified: true, stars: '★★★★', time: '2 天前', text: '早餐还不错，炒蛋和华夫饼都可以，午晚餐比较一般' },
+        ]
+      },
+      jjs: {
+        name: "JJ's Place",
+        location: 'John Jay Hall 地下一层，24小时营业',
+        stars: '⭐ 4.0',
+        count: '29 条评价',
+        reviews: [
+          { user: '赵同学', verified: true, stars: '★★★★★', time: '2 天前', text: '24 小时开放！期末熬夜救命神器，炸鸡还行' },
+          { user: '孙同学', verified: false, stars: '★★★', time: '5 天前', text: '深夜只有这一个选择，食物只能说凑合，但胜在方便' },
+        ]
+      },
+      chefmike: {
+        name: "Chef Mike's Sub Shop",
+        location: 'Wien Hall 一楼',
+        stars: '⭐ 4.5',
+        count: '18 条评价',
+        reviews: [
+          { user: '周同学', verified: true, stars: '★★★★★', time: '4 天前', text: '哥大最好吃的地方没有之一！三明治料足，强烈推荐 Italian combo' },
+          { user: '吴同学', verified: true, stars: '★★★★★', time: '1 周前', text: '每周必去，Mike 老板人也超好，会记住你喜欢什么' },
+        ]
+      }
+    };
+
+    function showDining(key) {
+      const d = diningData[key];
+      document.getElementById('detail-name').textContent = d.name;
+      document.getElementById('detail-location').textContent = d.location;
+      document.getElementById('detail-stars').textContent = d.stars;
+      document.getElementById('detail-count').textContent = d.count;
+      document.getElementById('modal-title').textContent = '给 ' + d.name + ' 打分';
+
+      const reviewsEl = document.getElementById('detail-reviews');
+      reviewsEl.innerHTML = d.reviews.map(r => `
+        <div class="review-item">
+          <div class="review-header">
+            <div class="avatar">${r.user[0]}</div>
+            <div class="post-user">${r.user}</div>
+            ${r.verified ? '<span class="verified-badge">🎓 已验证在校生</span>' : ''}
+            <span class="post-time">${r.time}</span>
+          </div>
+          <div class="review-stars">${r.stars}</div>
+          <div class="review-content">${r.text}</div>
+          <div class="post-actions">
+            <button class="action-btn">❤️ 点赞</button>
+            <button class="action-btn">💬 回复</button>
+          </div>
+        </div>
+      `).join('<div style="height:2px"></div>');
+
+      document.getElementById('dining-list-view').style.display = 'none';
+      document.getElementById('dining-detail-view').style.display = 'block';
+    }
+
+    function hideDining() {
+      document.getElementById('dining-list-view').style.display = 'block';
+      document.getElementById('dining-detail-view').style.display = 'none';
+    }
+
+    // 弹窗
+    let selectedStar = 0;
+
+    document.querySelectorAll('#starPicker button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedStar = parseInt(btn.dataset.val);
+        document.querySelectorAll('#starPicker button').forEach((b, i) => {
+          b.classList.toggle('selected', i < selectedStar);
+        });
+      });
+    });
+
+    function openModal() {
+      selectedStar = 0;
+      document.querySelectorAll('#starPicker button').forEach(b => b.classList.remove('selected'));
+      document.querySelector('.modal textarea').value = '';
+      document.getElementById('modalSuccess').style.display = 'none';
+      document.querySelector('.modal-footer').style.display = 'flex';
+      document.getElementById('rateModal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('rateModal').classList.remove('open');
+    }
+
+    function submitRating() {
+      if (!selectedStar) { alert('请先选择星级'); return; }
+      document.querySelector('.modal-footer').style.display = 'none';
+      document.getElementById('modalSuccess').style.display = 'block';
+      setTimeout(closeModal, 1500);
+    }
+
+    document.getElementById('rateModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('rateModal')) closeModal();
     });
   </script>
 
