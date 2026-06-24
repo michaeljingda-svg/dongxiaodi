@@ -268,6 +268,106 @@
       display: none;
     }
 
+    /* Hero 区 */
+    .hero {
+      background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+      border-bottom: 1px solid #21262d;
+      padding: 64px 32px 52px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      font-weight: 800;
+      color: #e6edf3;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .hero-title span {
+      color: #4d94ff;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: #8b949e;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-search {
+      position: relative;
+      max-width: 560px;
+      margin: 0 auto 20px;
+    }
+
+    .hero-search .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 17px;
+      pointer-events: none;
+    }
+
+    .hero-search input {
+      width: 100%;
+      background: #161b22;
+      border: 1.5px solid #30363d;
+      border-radius: 12px;
+      padding: 14px 18px 14px 48px;
+      color: #e6edf3;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .hero-search input:focus {
+      border-color: #1f6feb;
+    }
+
+    .hero-search input::placeholder {
+      color: #6e7681;
+    }
+
+    .hot-tags {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hot-label {
+      font-size: 12px;
+      color: #6e7681;
+    }
+
+    .hot-tag {
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: #8b949e;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .hot-tag:hover {
+      background: #1f6feb20;
+      border-color: #1f6feb;
+      color: #4d94ff;
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 40px 20px 36px; }
+      .hero-title { font-size: 26px; }
+      .hero-sub { font-size: 13px; margin-bottom: 24px; }
+      .hero-search input { font-size: 14px; padding: 12px 14px 12px 42px; }
+    }
+
     @media (max-width: 640px) {
       nav { padding: 0 16px; }
 
@@ -315,13 +415,26 @@
     </div>
   </nav>
 
-  <main>
-    <h1>高校评价榜单</h1>
-
-    <div class="search-bar">
+  <!-- Hero 区 -->
+  <section class="hero">
+    <div class="hero-title">留学，听<span>真实</span>的声音</div>
+    <div class="hero-sub">中国留学生的高校真实评价社区<br>食堂、宿舍、教授、校园环境，别只看官方简介</div>
+    <div class="hero-search">
       <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="搜索学校名称，如：NYU、哥伦比亚、悉尼..." />
+      <input type="text" id="searchInput" placeholder="搜索学校，如：NYU、哥伦比亚、UCL、悉尼大学…" />
     </div>
+    <div class="hot-tags">
+      <span class="hot-label">热门：</span>
+      <button class="hot-tag" onclick="setSearch('哥伦比亚')">哥伦比亚大学</button>
+      <button class="hot-tag" onclick="setSearch('纽约')">纽约大学</button>
+      <button class="hot-tag" onclick="setSearch('UCL')">UCL</button>
+      <button class="hot-tag" onclick="setSearch('墨尔本')">墨尔本大学</button>
+      <button class="hot-tag" onclick="setSearch('悉尼')">悉尼大学</button>
+    </div>
+  </section>
+
+  <main>
+    <h1 style="display:none;">高校评价榜单</h1>
 
     <div class="filter-bar">
       <div class="filter-row">
@@ -517,6 +630,12 @@
     });
 
     searchInput.addEventListener('input', applyFilters);
+
+    function setSearch(keyword) {
+      searchInput.value = keyword;
+      applyFilters();
+      document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+    };
   </script>
 
 </body>
