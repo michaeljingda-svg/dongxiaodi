@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>懂校帝</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+    }
+
+    /* 导航栏 */
+    nav {
+      background-color: #161b22;
+      border-bottom: 1px solid #21262d;
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #4d94ff;
+      letter-spacing: 1px;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #e6edf3;
+      border: 1px solid #30363d;
+    }
+
+    .btn-primary {
+      background-color: #1f6feb;
+      color: #fff;
+    }
+
+    /* 主体内容 */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #e6edf3;
+    }
+
+    /* 筛选栏 */
+    .filter-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-label {
+      font-size: 13px;
+      color: #8b949e;
+      width: 36px;
+      flex-shrink: 0;
+    }
+
+    .tag {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      border: 1px solid #30363d;
+      background: transparent;
+      color: #c9d1d9;
+    }
+
+    .tag.active {
+      background-color: #1f6feb;
+      border-color: #1f6feb;
+      color: #fff;
+    }
+
+    /* 榜单 */
+    .school-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .school-row {
+      display: grid;
+      grid-template-columns: 40px 48px 1fr 120px 120px 80px;
+      align-items: center;
+      padding: 16px 20px;
+      background-color: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.15s, background-color 0.15s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .school-row:hover {
+      border-color: #1f6feb;
+      background-color: #1c2230;
+    }
+
+    .rank {
+      font-size: 16px;
+      font-weight: 700;
+      color: #4d94ff;
+    }
+
+    .school-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #21262d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #8b949e;
+    }
+
+    .school-info {
+      padding-left: 4px;
+    }
+
+    .school-name-zh {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e6edf3;
+    }
+
+    .school-name-en {
+      font-size: 12px;
+      color: #8b949e;
+      margin-top: 2px;
+    }
+
+    .usnews-rank {
+      font-size: 13px;
+      color: #8b949e;
+    }
+
+    .usnews-rank span {
+      color: #4d94ff;
+      font-weight: 600;
+    }
+
+    .site-rating {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stars {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f0c040;
+    }
+
+    .review-count {
+      font-size: 11px;
+      color: #8b949e;
+    }
+
+    .arrow {
+      font-size: 16px;
+      color: #30363d;
+      text-align: right;
+    }
+
+    .school-row:hover .arrow {
+      color: #4d94ff;
+    }
+
+    /* 列表头 */
+    .list-header {
+      display: grid;
+      grid-template-columns: 40px 48px 1fr 120px 120px 80px;
+      padding: 8px 20px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* 搜索框 */
+    .search-bar {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 16px 10px 40px;
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      color: #e6edf3;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-bar input:focus {
+      border-color: #1f6feb;
+    }
+
+    .search-bar input::placeholder {
+      color: #8b949e;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8b949e;
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 48px 0;
+      color: #8b949e;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">懂校帝</div>
+    <div class="nav-actions">
+      <button class="btn btn-ghost">登录</button>
+      <button class="btn btn-primary">注册</button>
+    </div>
+  </nav>
+
+  <main>
+    <h1>高校评价榜单</h1>
+
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜索学校名称，如：NYU、哥伦比亚、悉尼..." />
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-row">
+        <span class="filter-label">地区</span>
+        <button class="tag active" data-region="全部">全部</button>
+        <button class="tag" data-region="美国">美国</button>
+        <button class="tag" data-region="英国">英国</button>
+        <button class="tag" data-region="澳大利亚">澳大利亚</button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">排序</span>
+        <button class="tag active" data-sort="usnews">USNews 排名</button>
+        <button class="tag" data-sort="food">食堂评分</button>
+        <button class="tag" data-sort="dorm">宿舍评分</button>
+        <button class="tag" data-sort="academic">学术氛围</button>
+        <button class="tag" data-sort="professor">教授评分</button>
+      </div>
+    </div>
+
+    <div class="list-header">
+      <span></span>
+      <span></span>
+      <span>学校</span>
+      <span>排名</span>
+      <span>本站评分</span>
+      <span></span>
+    </div>
+
+    <div class="school-list">
+
+      <a class="school-row" href="school.html" data-region="美国">
+        <div class="rank">1</div>
+        <div class="school-logo">CU</div>
+        <div class="school-info">
+          <div class="school-name-zh">哥伦比亚大学</div>
+          <div class="school-name-en">Columbia University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#12</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.2</div>
+          <div class="review-count">238 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="#" data-region="美国">
+        <div class="rank">2</div>
+        <div class="school-logo">UC</div>
+        <div class="school-info">
+          <div class="school-name-zh">加州大学戴维斯分校</div>
+          <div class="school-name-en">UC Davis (UCD)</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#27</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">189 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="#" data-region="美国">
+        <div class="rank">3</div>
+        <div class="school-logo">NY</div>
+        <div class="school-info">
+          <div class="school-name-zh">纽约大学</div>
+          <div class="school-name-en">New York University (NYU)</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#35</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">145 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="#" data-region="美国">
+        <div class="rank">4</div>
+        <div class="school-logo">BU</div>
+        <div class="school-info">
+          <div class="school-name-zh">波士顿大学</div>
+          <div class="school-name-en">Boston University (BU)</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#41</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.8</div>
+          <div class="review-count">132 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="#" data-region="英国">
+        <div class="rank">5</div>
+        <div class="school-logo">UC</div>
+        <div class="school-info">
+          <div class="school-name-zh">伦敦大学学院</div>
+          <div class="school-name-en">University College London (UCL)</div>
+        </div>
+        <div class="usnews-rank">QS <span>#9</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.3</div>
+          <div class="review-count">201 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="#" data-region="英国">
+        <div class="rank">6</div>
+        <div class="school-logo">曼</div>
+        <div class="school-info">
+          <div class="school-name-zh">曼彻斯特大学</div>
+          <div class="school-name-en">University of Manchester</div>
+        </div>
+        <div class="usnews-rank">QS <span>#34</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.7</div>
+          <div class="review-count">167 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="#" data-region="澳大利亚">
+        <div class="rank">7</div>
+        <div class="school-logo">悉</div>
+        <div class="school-info">
+          <div class="school-name-zh">悉尼大学</div>
+          <div class="school-name-en">University of Sydney</div>
+        </div>
+        <div class="usnews-rank">QS <span>#18</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.1</div>
+          <div class="review-count">155 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="#" data-region="澳大利亚">
+        <div class="rank">8</div>
+        <div class="school-logo">墨</div>
+        <div class="school-info">
+          <div class="school-name-zh">墨尔本大学</div>
+          <div class="school-name-en">University of Melbourne</div>
+        </div>
+        <div class="usnews-rank">QS <span>#13</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.4</div>
+          <div class="review-count">178 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+    </div>
+    <div class="no-results" id="noResults">没有找到匹配的学校</div>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const noResults = document.getElementById('noResults');
+    const regionTags = document.querySelectorAll('[data-region]');
+    const sortTags = document.querySelectorAll('[data-sort]');
+
+    let activeRegion = '全部';
+
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      const rows = document.querySelectorAll('.school-row');
+      let visible = 0;
+
+      rows.forEach(row => {
+        const regionMatch = activeRegion === '全部' || row.dataset.region === activeRegion;
+        const searchMatch = !q || row.innerText.toLowerCase().includes(q);
+        const show = regionMatch && searchMatch;
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    regionTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        regionTags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+        activeRegion = tag.dataset.region;
+        applyFilters();
+      });
+    });
+
+    sortTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        sortTags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+  </script>
+
+</body>
+</html>
