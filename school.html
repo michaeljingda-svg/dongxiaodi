@@ -494,6 +494,66 @@
 
     .form-input:focus { border-color: #1f6feb; }
 
+    /* 学术/环境 Tab */
+    .academic-section { margin-bottom: 36px; }
+
+    .academic-section-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e6edf3;
+      margin-bottom: 16px;
+    }
+
+    .dimension-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+
+    .dimension-row { display: flex; align-items: center; gap: 12px; }
+
+    .dimension-name { font-size: 13px; color: #c9d1d9; width: 88px; flex-shrink: 0; }
+
+    .dimension-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background-color: #21262d;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .dimension-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #1f6feb, #4d94ff);
+      border-radius: 3px;
+    }
+
+    .dimension-score { font-size: 13px; font-weight: 700; color: #f0c040; width: 32px; text-align: right; }
+
+    /* 附近设施 */
+    .facility-empty {
+      text-align: center;
+      padding: 40px 0 32px;
+      border: 1px dashed #30363d;
+      border-radius: 8px;
+    }
+
+    .facility-empty .icon { font-size: 36px; margin-bottom: 12px; }
+    .facility-empty p { font-size: 13px; color: #8b949e; margin-bottom: 16px; }
+
+    /* 设施类别 select */
+    .form-select {
+      background-color: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #e6edf3;
+      font-size: 13px;
+      padding: 8px 12px;
+      outline: none;
+      font-family: inherit;
+      width: 100%;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .form-select:focus { border-color: #1f6feb; }
+
     /* 动态 Tab */
     .post-box {
       background-color: #161b22;
@@ -941,13 +1001,134 @@
 
     <!-- 学术/环境 Tab -->
     <div class="tab-panel" id="tab-academic">
-      <div class="coming-soon">
-        <div class="icon">📚</div>
-        <p>学术环境评分即将上线</p>
+
+      <!-- 整体评分 -->
+      <div class="academic-section">
+        <div class="academic-section-title">整体评分 <span style="font-size:12px;color:#8b949e;font-weight:400;">基于 89 条评价</span></div>
+        <div class="dimension-list">
+          <div class="dimension-row">
+            <div class="dimension-name">学术氛围</div>
+            <div class="dimension-bar-wrap"><div class="dimension-bar" style="width:82%"></div></div>
+            <div class="dimension-score">4.1</div>
+          </div>
+          <div class="dimension-row">
+            <div class="dimension-name">科研资源</div>
+            <div class="dimension-bar-wrap"><div class="dimension-bar" style="width:86%"></div></div>
+            <div class="dimension-score">4.3</div>
+          </div>
+          <div class="dimension-row">
+            <div class="dimension-name">周边便利度</div>
+            <div class="dimension-bar-wrap"><div class="dimension-bar" style="width:100%"></div></div>
+            <div class="dimension-score">5.0</div>
+          </div>
+          <div class="dimension-row">
+            <div class="dimension-name">安全感</div>
+            <div class="dimension-bar-wrap"><div class="dimension-bar" style="width:58%"></div></div>
+            <div class="dimension-score">2.9</div>
+          </div>
+        </div>
+        <button class="rate-btn" onclick="openAcademicModal()">给学校整体打分</button>
       </div>
+
+      <!-- 附近设施 -->
+      <div class="academic-section">
+        <div class="section-header">
+          <span class="academic-section-title">附近设施</span>
+          <button class="add-btn" onclick="openFacilityModal()">+ 添加附近设施</button>
+        </div>
+        <div class="facility-empty">
+          <div class="icon">🏙️</div>
+          <p>还没有设施信息<br>添加你知道的附近资源，帮助其他同学</p>
+          <button class="btn btn-primary" style="font-size:13px;padding:8px 20px;" onclick="openFacilityModal()">+ 添加附近设施</button>
+        </div>
+      </div>
+
     </div>
 
   </main>
+
+  <!-- 学术整体打分弹窗 -->
+  <div class="modal-overlay" id="academicModal">
+    <div class="modal" style="width:420px;">
+      <div class="modal-title">给学校整体打分</div>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:16px;">
+        <div>
+          <div class="form-label" style="margin-bottom:8px;">学术氛围</div>
+          <div class="star-picker" id="academic-star-1">
+            <button data-val="1">⭐</button><button data-val="2">⭐</button><button data-val="3">⭐</button><button data-val="4">⭐</button><button data-val="5">⭐</button>
+          </div>
+        </div>
+        <div>
+          <div class="form-label" style="margin-bottom:8px;">科研资源</div>
+          <div class="star-picker" id="academic-star-2">
+            <button data-val="1">⭐</button><button data-val="2">⭐</button><button data-val="3">⭐</button><button data-val="4">⭐</button><button data-val="5">⭐</button>
+          </div>
+        </div>
+        <div>
+          <div class="form-label" style="margin-bottom:8px;">周边便利度</div>
+          <div class="star-picker" id="academic-star-3">
+            <button data-val="1">⭐</button><button data-val="2">⭐</button><button data-val="3">⭐</button><button data-val="4">⭐</button><button data-val="5">⭐</button>
+          </div>
+        </div>
+        <div>
+          <div class="form-label" style="margin-bottom:8px;">安全感</div>
+          <div class="star-picker" id="academic-star-4">
+            <button data-val="1">⭐</button><button data-val="2">⭐</button><button data-val="3">⭐</button><button data-val="4">⭐</button><button data-val="5">⭐</button>
+          </div>
+        </div>
+      </div>
+      <textarea class="form-input" style="height:64px;resize:none;margin-bottom:8px;" placeholder="补充说明（选填）…" id="academic-review"></textarea>
+      <div class="modal-warning">⚠️ 提交后不可修改</div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeAcademicModal()">取消</button>
+        <button class="btn btn-primary" onclick="submitAcademic()">提交评分</button>
+      </div>
+      <div class="modal-success" id="academicSuccess">✅ 已提交，感谢你的评分！</div>
+    </div>
+  </div>
+
+  <!-- 添加附近设施弹窗 -->
+  <div class="modal-overlay" id="facilityModal">
+    <div class="modal" style="width:440px;">
+      <div class="modal-title">添加附近设施</div>
+      <div class="form-group">
+        <div class="form-label">设施名称 *</div>
+        <input class="form-input" type="text" placeholder="如：CVS Pharmacy" id="fac-name">
+      </div>
+      <div class="form-group">
+        <div class="form-label">类别 *</div>
+        <select class="form-select" id="fac-category">
+          <option value="">请选择类别</option>
+          <option value="apartment">学生公寓</option>
+          <option value="hospital">医院 / 诊所</option>
+          <option value="restaurant">餐厅</option>
+          <option value="supermarket">超市 / 便利店</option>
+          <option value="gym">健身房</option>
+          <option value="other">其他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="form-label">距离（选填）</div>
+        <input class="form-input" type="text" placeholder="如：步行 5 分钟 / 0.3 mile" id="fac-distance">
+      </div>
+      <div class="form-group">
+        <div class="form-label">评分 *</div>
+        <div class="star-picker" id="facStarPicker">
+          <button data-val="1">⭐</button><button data-val="2">⭐</button><button data-val="3">⭐</button><button data-val="4">⭐</button><button data-val="5">⭐</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-label">评价（选填）</div>
+        <textarea class="form-input" style="height:64px;resize:none;" placeholder="推荐理由、注意事项……" id="fac-review"></textarea>
+      </div>
+      <div class="modal-warning">提交后经管理员审核通过即上线</div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeFacilityModal()">取消</button>
+        <button class="btn btn-primary" onclick="submitFacility()">提交审核</button>
+      </div>
+      <div class="modal-success" id="facilitySuccess">✅ 已提交！审核通过后将上线</div>
+    </div>
+  </div>
 
   <!-- 纠错弹窗 -->
   <div class="modal-overlay" id="reportModal">
@@ -1257,6 +1438,80 @@
       document.getElementById('modal-title').textContent = '给这栋宿舍楼打分';
       openModal();
     }
+
+    // 学术整体打分
+    const academicStarGroups = [1,2,3,4].map(i => {
+      const group = document.querySelectorAll(`#academic-star-${i} button`);
+      let val = 0;
+      group.forEach(btn => {
+        btn.addEventListener('click', () => {
+          val = parseInt(btn.dataset.val);
+          group.forEach((b, idx) => b.classList.toggle('selected', idx < val));
+        });
+      });
+      return () => val;
+    });
+
+    function openAcademicModal() {
+      [1,2,3,4].forEach(i => {
+        document.querySelectorAll(`#academic-star-${i} button`).forEach(b => b.classList.remove('selected'));
+      });
+      document.getElementById('academic-review').value = '';
+      document.getElementById('academicSuccess').style.display = 'none';
+      document.querySelector('#academicModal .modal-footer').style.display = 'flex';
+      document.getElementById('academicModal').classList.add('open');
+    }
+
+    function closeAcademicModal() { document.getElementById('academicModal').classList.remove('open'); }
+
+    function submitAcademic() {
+      const allFilled = academicStarGroups.every(g => g() > 0);
+      if (!allFilled) { alert('请给四个维度都打分'); return; }
+      document.querySelector('#academicModal .modal-footer').style.display = 'none';
+      document.getElementById('academicSuccess').style.display = 'block';
+      setTimeout(closeAcademicModal, 1800);
+    }
+
+    document.getElementById('academicModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('academicModal')) closeAcademicModal();
+    });
+
+    // 附近设施弹窗
+    let selectedFacStar = 0;
+
+    document.querySelectorAll('#facStarPicker button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedFacStar = parseInt(btn.dataset.val);
+        document.querySelectorAll('#facStarPicker button').forEach((b, i) => {
+          b.classList.toggle('selected', i < selectedFacStar);
+        });
+      });
+    });
+
+    function openFacilityModal() {
+      selectedFacStar = 0;
+      document.querySelectorAll('#facStarPicker button').forEach(b => b.classList.remove('selected'));
+      ['fac-name','fac-distance','fac-review'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('fac-category').value = '';
+      document.getElementById('facilitySuccess').style.display = 'none';
+      document.querySelector('#facilityModal .modal-footer').style.display = 'flex';
+      document.getElementById('facilityModal').classList.add('open');
+    }
+
+    function closeFacilityModal() { document.getElementById('facilityModal').classList.remove('open'); }
+
+    function submitFacility() {
+      const name = document.getElementById('fac-name').value.trim();
+      const cat = document.getElementById('fac-category').value;
+      if (!name || !cat || !selectedFacStar) { alert('请填写设施名称、类别和评分'); return; }
+      document.querySelector('#facilityModal .modal-footer').style.display = 'none';
+      document.getElementById('facilitySuccess').style.display = 'block';
+      setTimeout(closeFacilityModal, 2000);
+    }
+
+    document.getElementById('facilityModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('facilityModal')) closeFacilityModal();
+    });
 
     // 纠错弹窗
     function openReportModal(type) {
