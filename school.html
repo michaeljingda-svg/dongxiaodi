@@ -736,10 +736,110 @@
 
     <!-- 宿舍 Tab -->
     <div class="tab-panel" id="tab-dorm">
-      <div class="coming-soon">
-        <div class="icon">🏠</div>
-        <p>宿舍评分即将上线</p>
+
+      <div id="dorm-list-view">
+        <div class="section-header">
+          <span class="section-title">宿舍评分</span>
+          <button class="add-btn">+ 补充一栋宿舍楼</button>
+        </div>
+        <div class="dining-list">
+          <div class="dining-card" onclick="showDorm('johnjay')">
+            <div class="dining-card-left">
+              <div class="dining-name">John Jay Hall</div>
+              <div class="dining-meta">大一新生主要宿舍，单人间/双人间</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 4.1</div>
+                <div class="dining-count">37 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+          <div class="dining-card" onclick="showDorm('hartley')">
+            <div class="dining-card-left">
+              <div class="dining-name">Hartley Hall</div>
+              <div class="dining-meta">大一宿舍，房间较小但位置好</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 3.6</div>
+                <div class="dining-count">28 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+          <div class="dining-card" onclick="showDorm('wallach')">
+            <div class="dining-card-left">
+              <div class="dining-name">Wallach Hall</div>
+              <div class="dining-meta">大一宿舍，套间式布局</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 3.9</div>
+                <div class="dining-count">22 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+          <div class="dining-card" onclick="showDorm('wien')">
+            <div class="dining-card-left">
+              <div class="dining-name">Wien Hall</div>
+              <div class="dining-meta">大二及以上，单人间为主</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 4.4</div>
+                <div class="dining-count">31 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+          <div class="dining-card" onclick="showDorm('furnald')">
+            <div class="dining-card-left">
+              <div class="dining-name">Furnald Hall</div>
+              <div class="dining-meta">安静型宿舍，24小时自习室</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 4.6</div>
+                <div class="dining-count">19 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+          <div class="dining-card" onclick="showDorm('ruggles')">
+            <div class="dining-card-left">
+              <div class="dining-name">Ruggles Hall</div>
+              <div class="dining-meta">大二及以上，双人间/套间</div>
+            </div>
+            <div class="dining-card-right">
+              <div class="dining-rating">
+                <div class="dining-stars">⭐ 3.8</div>
+                <div class="dining-count">15 条评价</div>
+              </div>
+              <div class="dining-arrow">→</div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div id="dorm-detail-view" style="display:none;">
+        <button class="detail-back" onclick="hideDorm()">← 返回宿舍列表</button>
+        <div class="detail-hero">
+          <div>
+            <div class="detail-name" id="dorm-detail-name"></div>
+            <div class="detail-location" id="dorm-detail-location"></div>
+          </div>
+          <div class="detail-score">
+            <div class="detail-stars" id="dorm-detail-stars"></div>
+            <div class="detail-count" id="dorm-detail-count"></div>
+          </div>
+        </div>
+        <button class="rate-btn" onclick="openDormModal()">给这栋宿舍打分</button>
+        <div class="review-list" id="dorm-detail-reviews"></div>
+      </div>
+
     </div>
 
     <!-- 教授 Tab -->
@@ -910,6 +1010,105 @@
     document.getElementById('rateModal').addEventListener('click', e => {
       if (e.target === document.getElementById('rateModal')) closeModal();
     });
+
+    // 宿舍数据
+    const dormData = {
+      johnjay: {
+        name: 'John Jay Hall',
+        location: '大一新生主要宿舍，单人间 / 双人间混合',
+        stars: '⭐ 4.1', count: '37 条评价',
+        reviews: [
+          { user: '张同学', verified: true, stars: '★★★★★', time: '2 天前', text: '位置超好，就在 John Jay 食堂楼上，去上课也方便。房间稍小但够用' },
+          { user: '陈同学', verified: true, stars: '★★★★', time: '1 周前', text: '大一住这里认识了很多同学，楼层氛围很好，RA 也很负责' },
+          { user: '李同学', verified: false, stars: '★★★', time: '2 周前', text: '双人间有点挤，隔音一般，期末考试周容易被打扰' },
+        ]
+      },
+      hartley: {
+        name: 'Hartley Hall',
+        location: '大一宿舍，位于 116th St 主入口附近',
+        stars: '⭐ 3.6', count: '28 条评价',
+        reviews: [
+          { user: '王同学', verified: true, stars: '★★★', time: '3 天前', text: '房间真的很小，衣柜空间不够用。但地理位置没得说' },
+          { user: '刘同学', verified: false, stars: '★★★★', time: '1 周前', text: '整体还行，公共卫生间挺干净的，清洁人员很勤快' },
+        ]
+      },
+      wallach: {
+        name: 'Wallach Hall',
+        location: '大一宿舍，套间式布局，2-3人共用卫生间',
+        stars: '⭐ 3.9', count: '22 条评价',
+        reviews: [
+          { user: '赵同学', verified: true, stars: '★★★★', time: '5 天前', text: '套间设计私密性好，和室友相处也更舒服。热水器有时候不稳定' },
+          { user: '孙同学', verified: true, stars: '★★★★', time: '2 周前', text: '比 Hartley 宽敞，强烈推荐选这个' },
+        ]
+      },
+      wien: {
+        name: 'Wien Hall',
+        location: '大二及以上，单人间为主，含小厨房',
+        stars: '⭐ 4.4', count: '31 条评价',
+        reviews: [
+          { user: '周同学', verified: true, stars: '★★★★★', time: '1 天前', text: '终于有自己的单人间了！有小厨房可以自己做饭，生活质量大幅提升' },
+          { user: '吴同学', verified: true, stars: '★★★★★', time: '4 天前', text: 'Wien 是哥大最好的宿舍之一，安静，房间大，Chef Mike\'s 就在楼下' },
+          { user: '郑同学', verified: false, stars: '★★★★', time: '1 周前', text: '采光很好，电梯有点慢，其他都满意' },
+        ]
+      },
+      furnald: {
+        name: 'Furnald Hall',
+        location: '安静型宿舍（Quiet Dorm），含 24 小时自习室',
+        stars: '⭐ 4.6', count: '19 条评价',
+        reviews: [
+          { user: '钱同学', verified: true, stars: '★★★★★', time: '3 天前', text: '强烈推荐给喜欢安静的同学！24 小时自习室几乎随时都有位置，氛围超好' },
+          { user: '冯同学', verified: true, stars: '★★★★★', time: '1 周前', text: '整栋楼的人都比较学术向，很少有噪音，期末效率极高' },
+        ]
+      },
+      ruggles: {
+        name: 'Ruggles Hall',
+        location: '大二及以上，双人间 / 套间，靠近 116th St',
+        stars: '⭐ 3.8', count: '15 条评价',
+        reviews: [
+          { user: '蒋同学', verified: false, stars: '★★★★', time: '1 周前', text: '性价比还行，套间的话两个人住很舒服。离地铁站近，出行方便' },
+          { user: '韩同学', verified: true, stars: '★★★', time: '2 周前', text: '装修有点老，但该有的都有。热水稳定，这点比 Hartley 强' },
+        ]
+      }
+    };
+
+    function showDorm(key) {
+      const d = dormData[key];
+      document.getElementById('dorm-detail-name').textContent = d.name;
+      document.getElementById('dorm-detail-location').textContent = d.location;
+      document.getElementById('dorm-detail-stars').textContent = d.stars;
+      document.getElementById('dorm-detail-count').textContent = d.count;
+      document.getElementById('modal-title').textContent = '给 ' + d.name + ' 打分';
+
+      document.getElementById('dorm-detail-reviews').innerHTML = d.reviews.map(r => `
+        <div class="review-item">
+          <div class="review-header">
+            <div class="avatar">${r.user[0]}</div>
+            <div class="post-user">${r.user}</div>
+            ${r.verified ? '<span class="verified-badge">🎓 已验证在校生</span>' : ''}
+            <span class="post-time">${r.time}</span>
+          </div>
+          <div class="review-stars">${r.stars}</div>
+          <div class="review-content">${r.text}</div>
+          <div class="post-actions">
+            <button class="action-btn">❤️ 点赞</button>
+            <button class="action-btn">💬 回复</button>
+          </div>
+        </div>
+      `).join('<div style="height:2px"></div>');
+
+      document.getElementById('dorm-list-view').style.display = 'none';
+      document.getElementById('dorm-detail-view').style.display = 'block';
+    }
+
+    function hideDorm() {
+      document.getElementById('dorm-list-view').style.display = 'block';
+      document.getElementById('dorm-detail-view').style.display = 'none';
+    }
+
+    function openDormModal() {
+      document.getElementById('modal-title').textContent = '给这栋宿舍楼打分';
+      openModal();
+    }
   </script>
 
 </body>
