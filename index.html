@@ -423,13 +423,16 @@
       <span class="search-icon">🔍</span>
       <input type="text" id="searchInput" placeholder="搜索学校，如：NYU、哥伦比亚、UCL、悉尼大学…" />
     </div>
-    <div class="hot-tags">
+        <div class="hot-tags">
       <span class="hot-label">热门：</span>
-      <button class="hot-tag" onclick="setSearch('哥伦比亚')">哥伦比亚大学</button>
-      <button class="hot-tag" onclick="setSearch('纽约')">纽约大学</button>
+      <button class="hot-tag" onclick="setSearch('哈佛')">哈佛大学</button>
+      <button class="hot-tag" onclick="setSearch('MIT')">MIT</button>
+      <button class="hot-tag" onclick="setSearch('斯坦福')">斯坦福</button>
+      <button class="hot-tag" onclick="setSearch('哥伦比亚')">哥伦比亚</button>
+      <button class="hot-tag" onclick="setSearch('牛津')">牛津大学</button>
+      <button class="hot-tag" onclick="setSearch('剑桥')">剑桥大学</button>
       <button class="hot-tag" onclick="setSearch('UCL')">UCL</button>
       <button class="hot-tag" onclick="setSearch('墨尔本')">墨尔本大学</button>
-      <button class="hot-tag" onclick="setSearch('悉尼')">悉尼大学</button>
     </div>
   </section>
 
@@ -465,9 +468,144 @@
 
     <div class="school-list">
 
-      <a class="school-row" href="school.html" data-region="美国">
+      <a class="school-row" href="princeton.html" data-region="美国">
         <div class="rank">1</div>
-        <div class="school-logo">CU</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #E77500, #CC5200);color:#fff;">PU</div>
+        <div class="school-info">
+          <div class="school-name-zh">普林斯顿大学</div>
+          <div class="school-name-en">Princeton University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#1</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.5</div>
+          <div class="review-count">210 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="mit.html" data-region="美国">
+        <div class="rank">2</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #750014, #A01020);color:#fff;">MI</div>
+        <div class="school-info">
+          <div class="school-name-zh">麻省理工学院</div>
+          <div class="school-name-en">MIT</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#2</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.4</div>
+          <div class="review-count">195 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="harvard.html" data-region="美国">
+        <div class="rank">3</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #A51C30, #7A0018);color:#fff;">HU</div>
+        <div class="school-info">
+          <div class="school-name-zh">哈佛大学</div>
+          <div class="school-name-en">Harvard University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#3</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.3</div>
+          <div class="review-count">315 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="stanford.html" data-region="美国">
+        <div class="rank">4</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #8C1515, #B01010);color:#fff;">SU</div>
+        <div class="school-info">
+          <div class="school-name-zh">斯坦福大学</div>
+          <div class="school-name-en">Stanford University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#3</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.5</div>
+          <div class="review-count">280 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="yale.html" data-region="美国">
+        <div class="rank">5</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #00356B, #1A5090);color:#fff;">YU</div>
+        <div class="school-info">
+          <div class="school-name-zh">耶鲁大学</div>
+          <div class="school-name-en">Yale University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#5</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.3</div>
+          <div class="review-count">232 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="upenn.html" data-region="美国">
+        <div class="rank">6</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #011F5B, #1A3A7A);color:#fff;">UP</div>
+        <div class="school-info">
+          <div class="school-name-zh">宾夕法尼亚大学</div>
+          <div class="school-name-en">University of Pennsylvania</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#6</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.1</div>
+          <div class="review-count">198 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="duke.html" data-region="美国">
+        <div class="rank">7</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003087, #1A4A9A);color:#fff;">DU</div>
+        <div class="school-info">
+          <div class="school-name-zh">杜克大学</div>
+          <div class="school-name-en">Duke University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#7</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.2</div>
+          <div class="review-count">176 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="jhu.html" data-region="美国">
+        <div class="rank">8</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #002D62, #1A4A80);color:#fff;">JH</div>
+        <div class="school-info">
+          <div class="school-name-zh">约翰斯·霍普金斯大学</div>
+          <div class="school-name-en">Johns Hopkins University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#9</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">162 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="northwestern.html" data-region="美国">
+        <div class="rank">9</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #4E2A84, #6A3A9A);color:#fff;">NU</div>
+        <div class="school-info">
+          <div class="school-name-zh">西北大学</div>
+          <div class="school-name-en">Northwestern University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#9</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.1</div>
+          <div class="review-count">171 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="school.html" data-region="美国">
+        <div class="rank">10</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #1f3a6e, #1f6feb);color:#fff;">CU</div>
         <div class="school-info">
           <div class="school-name-zh">哥伦比亚大学</div>
           <div class="school-name-en">Columbia University</div>
@@ -480,12 +618,237 @@
         <div class="arrow">→</div>
       </a>
 
+      <a class="school-row" href="dartmouth.html" data-region="美国">
+        <div class="rank">11</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #00693E, #1A8050);color:#fff;">DC</div>
+        <div class="school-info">
+          <div class="school-name-zh">达特茅斯学院</div>
+          <div class="school-name-en">Dartmouth College</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#12</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.3</div>
+          <div class="review-count">143 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="brown.html" data-region="美国">
+        <div class="rank">12</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #4E3629, #6A4A3A);color:#fff;">BR</div>
+        <div class="school-info">
+          <div class="school-name-zh">布朗大学</div>
+          <div class="school-name-en">Brown University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#13</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.2</div>
+          <div class="review-count">158 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="cornell.html" data-region="美国">
+        <div class="rank">13</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #B31B1B, #CC2020);color:#fff;">CU</div>
+        <div class="school-info">
+          <div class="school-name-zh">康奈尔大学</div>
+          <div class="school-name-en">Cornell University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#13</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">221 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="vanderbilt.html" data-region="美国">
+        <div class="rank">14</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #866D4B, #9A8060);color:#fff;">VU</div>
+        <div class="school-info">
+          <div class="school-name-zh">范德比尔特大学</div>
+          <div class="school-name-en">Vanderbilt University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#13</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">147 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="ucla.html" data-region="美国">
+        <div class="rank">15</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003B5C, #1A5A80);color:#fff;">LA</div>
+        <div class="school-info">
+          <div class="school-name-zh">加州大学洛杉矶分校</div>
+          <div class="school-name-en">UCLA</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#15</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">267 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="berkeley.html" data-region="美国">
+        <div class="rank">16</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003262, #1A5080);color:#fff;">UC</div>
+        <div class="school-info">
+          <div class="school-name-zh">加州大学伯克利分校</div>
+          <div class="school-name-en">UC Berkeley</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#17</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.2</div>
+          <div class="review-count">301 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="rice.html" data-region="美国">
+        <div class="rank">17</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #00205B, #1A3A7A);color:#fff;">RI</div>
+        <div class="school-info">
+          <div class="school-name-zh">莱斯大学</div>
+          <div class="school-name-en">Rice University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#17</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.4</div>
+          <div class="review-count">132 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="notredame.html" data-region="美国">
+        <div class="rank">18</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #0C2340, #1A3A60);color:#fff;">ND</div>
+        <div class="school-info">
+          <div class="school-name-zh">圣母大学</div>
+          <div class="school-name-en">University of Notre Dame</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#20</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.8</div>
+          <div class="review-count">138 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="georgetown.html" data-region="美国">
+        <div class="rank">19</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003865, #1A5080);color:#fff;">GU</div>
+        <div class="school-info">
+          <div class="school-name-zh">乔治城大学</div>
+          <div class="school-name-en">Georgetown University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#22</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.1</div>
+          <div class="review-count">183 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="cmu.html" data-region="美国">
+        <div class="rank">20</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #C41230, #D82040);color:#fff;">CM</div>
+        <div class="school-info">
+          <div class="school-name-zh">卡内基梅隆大学</div>
+          <div class="school-name-en">Carnegie Mellon University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#22</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.3</div>
+          <div class="review-count">189 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="umich.html" data-region="美国">
+        <div class="rank">21</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #00274C, #1A4070);color:#fff;">UM</div>
+        <div class="school-info">
+          <div class="school-name-zh">密歇根大学安娜堡</div>
+          <div class="school-name-en">University of Michigan</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#23</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">241 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="unc.html" data-region="美国">
+        <div class="rank">22</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #4B9CD3, #6AAAE0);color:#fff;">UN</div>
+        <div class="school-info">
+          <div class="school-name-zh">北卡罗来纳大学教堂山</div>
+          <div class="school-name-en">UNC Chapel Hill</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#24</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">156 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="washu.html" data-region="美国">
+        <div class="rank">23</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #A51417, #C02020);color:#fff;">WU</div>
+        <div class="school-info">
+          <div class="school-name-zh">圣路易斯华盛顿大学</div>
+          <div class="school-name-en">Washington University in St. Louis</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#24</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.1</div>
+          <div class="review-count">134 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="usc.html" data-region="美国">
+        <div class="rank">24</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #990000, #BB0000);color:#fff;">SC</div>
+        <div class="school-info">
+          <div class="school-name-zh">南加州大学</div>
+          <div class="school-name-en">University of Southern California</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#25</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.8</div>
+          <div class="review-count">253 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="emory.html" data-region="美国">
+        <div class="rank">25</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #012169, #1A3A90);color:#fff;">EM</div>
+        <div class="school-info">
+          <div class="school-name-zh">艾默里大学</div>
+          <div class="school-name-en">Emory University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#25</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">142 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
       <a class="school-row" href="ucd.html" data-region="美国">
-        <div class="rank">2</div>
-        <div class="school-logo">UC</div>
+        <div class="rank">26</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003366, #1a6699);color:#fff;">UC</div>
         <div class="school-info">
           <div class="school-name-zh">加州大学戴维斯分校</div>
-          <div class="school-name-en">UC Davis (UCD)</div>
+          <div class="school-name-en">University of California, Davis (UCD)</div>
         </div>
         <div class="usnews-rank">USNews <span>#27</span></div>
         <div class="site-rating">
@@ -495,9 +858,129 @@
         <div class="arrow">→</div>
       </a>
 
+      <a class="school-row" href="uf.html" data-region="美国">
+        <div class="rank">27</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #0021A5, #1A40C0);color:#fff;">UF</div>
+        <div class="school-info">
+          <div class="school-name-zh">佛罗里达大学</div>
+          <div class="school-name-en">University of Florida</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#28</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">178 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="ucsd.html" data-region="美国">
+        <div class="rank">28</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #00629B, #1A80C0);color:#fff;">SD</div>
+        <div class="school-info">
+          <div class="school-name-zh">加州大学圣地亚哥分校</div>
+          <div class="school-name-en">UC San Diego</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#28</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">188 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="tufts.html" data-region="美国">
+        <div class="rank">29</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #3E8EDE, #5AA0F0);color:#fff;">TU</div>
+        <div class="school-info">
+          <div class="school-name-zh">塔夫茨大学</div>
+          <div class="school-name-en">Tufts University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#30</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">128 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="ucsb.html" data-region="美国">
+        <div class="rank">30</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003660, #1A5080);color:#fff;">SB</div>
+        <div class="school-info">
+          <div class="school-name-zh">加州大学圣巴巴拉分校</div>
+          <div class="school-name-en">UC Santa Barbara</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#32</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">143 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="utaustin.html" data-region="美国">
+        <div class="rank">31</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #BF5700, #D06000);color:#fff;">UT</div>
+        <div class="school-info">
+          <div class="school-name-zh">德克萨斯大学奥斯汀</div>
+          <div class="school-name-en">UT Austin</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#32</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">201 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="gatech.html" data-region="美国">
+        <div class="rank">32</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #B3A369, #C0AE60);color:#fff;">GT</div>
+        <div class="school-info">
+          <div class="school-name-zh">乔治亚理工学院</div>
+          <div class="school-name-en">Georgia Tech</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#33</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.2</div>
+          <div class="review-count">198 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="uiuc.html" data-region="美国">
+        <div class="rank">33</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #E84A27, #CC3010);color:#fff;">UI</div>
+        <div class="school-info">
+          <div class="school-name-zh">伊利诺伊大学厄巴纳-香槟</div>
+          <div class="school-name-en">UIUC</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#35</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.1</div>
+          <div class="review-count">211 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="uci.html" data-region="美国">
+        <div class="rank">34</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003764, #1A5080);color:#fff;">CI</div>
+        <div class="school-info">
+          <div class="school-name-zh">加州大学欧文分校</div>
+          <div class="school-name-en">UC Irvine</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#35</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.8</div>
+          <div class="review-count">156 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
       <a class="school-row" href="nyu.html" data-region="美国">
-        <div class="rank">3</div>
-        <div class="school-logo">NY</div>
+        <div class="rank">35</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #57068c, #8b1fc8);color:#fff;">NY</div>
         <div class="school-info">
           <div class="school-name-zh">纽约大学</div>
           <div class="school-name-en">New York University (NYU)</div>
@@ -510,9 +993,24 @@
         <div class="arrow">→</div>
       </a>
 
+      <a class="school-row" href="bc.html" data-region="美国">
+        <div class="rank">36</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #8B0000, #AA0000);color:#fff;">BC</div>
+        <div class="school-info">
+          <div class="school-name-zh">波士顿学院</div>
+          <div class="school-name-en">Boston College</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#39</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.7</div>
+          <div class="review-count">119 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
       <a class="school-row" href="bu.html" data-region="美国">
-        <div class="rank">4</div>
-        <div class="school-logo">BU</div>
+        <div class="rank">37</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #cc0000, #990000);color:#fff;">BU</div>
         <div class="school-info">
           <div class="school-name-zh">波士顿大学</div>
           <div class="school-name-en">Boston University (BU)</div>
@@ -525,9 +1023,234 @@
         <div class="arrow">→</div>
       </a>
 
+      <a class="school-row" href="wisc.html" data-region="美国">
+        <div class="rank">38</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #C5050C, #D01010);color:#fff;">WI</div>
+        <div class="school-info">
+          <div class="school-name-zh">威斯康星大学麦迪逊</div>
+          <div class="school-name-en">UW-Madison</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#42</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.8</div>
+          <div class="review-count">167 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="tulane.html" data-region="美国">
+        <div class="rank">39</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #006747, #1A8060);color:#fff;">TL</div>
+        <div class="school-info">
+          <div class="school-name-zh">杜兰大学</div>
+          <div class="school-name-en">Tulane University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#44</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">112 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="rochester.html" data-region="美国">
+        <div class="rank">40</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003366, #1A5080);color:#fff;">RU</div>
+        <div class="school-info">
+          <div class="school-name-zh">罗切斯特大学</div>
+          <div class="school-name-en">University of Rochester</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#44</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">102 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="cwru.html" data-region="美国">
+        <div class="rank">41</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003B5C, #1A5A80);color:#fff;">CW</div>
+        <div class="school-info">
+          <div class="school-name-zh">凯斯西储大学</div>
+          <div class="school-name-en">Case Western Reserve University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#47</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.8</div>
+          <div class="review-count">98 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="northeastern.html" data-region="美国">
+        <div class="rank">42</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #CC0000, #EE0000);color:#fff;">NE</div>
+        <div class="school-info">
+          <div class="school-name-zh">东北大学</div>
+          <div class="school-name-en">Northeastern University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#49</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">167 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="osu.html" data-region="美国">
+        <div class="rank">43</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #BB0000, #CC0000);color:#fff;">OS</div>
+        <div class="school-info">
+          <div class="school-name-zh">俄亥俄州立大学</div>
+          <div class="school-name-en">Ohio State University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#49</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.8</div>
+          <div class="review-count">195 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="purdue.html" data-region="美国">
+        <div class="rank">44</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #CEB888, #A07840);color:#fff;">PD</div>
+        <div class="school-info">
+          <div class="school-name-zh">普渡大学</div>
+          <div class="school-name-en">Purdue University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#49</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">178 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="uw.html" data-region="美国">
+        <div class="rank">45</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #4B2E83, #6A40A0);color:#fff;">UW</div>
+        <div class="school-info">
+          <div class="school-name-zh">华盛顿大学西雅图</div>
+          <div class="school-name-en">University of Washington</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#55</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">173 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="pennstate.html" data-region="美国">
+        <div class="rank">46</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #1E407C, #2A5A9A);color:#fff;">PS</div>
+        <div class="school-info">
+          <div class="school-name-zh">宾夕法尼亚州立大学</div>
+          <div class="school-name-en">Penn State University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#55</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.7</div>
+          <div class="review-count">161 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="umn.html" data-region="美国">
+        <div class="rank">47</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #7A0019, #990020);color:#fff;">MN</div>
+        <div class="school-info">
+          <div class="school-name-zh">明尼苏达大学双城</div>
+          <div class="school-name-en">University of Minnesota</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#55</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.7</div>
+          <div class="review-count">124 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="fordham.html" data-region="美国">
+        <div class="rank">48</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #6B1130, #8A1A40);color:#fff;">FO</div>
+        <div class="school-info">
+          <div class="school-name-zh">福德汉姆大学</div>
+          <div class="school-name-en">Fordham University</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#61</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.7</div>
+          <div class="review-count">108 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="indiana.html" data-region="美国">
+        <div class="rank">49</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #990000, #BB0000);color:#fff;">IU</div>
+        <div class="school-info">
+          <div class="school-name-zh">印第安纳大学伯明顿</div>
+          <div class="school-name-en">Indiana University Bloomington</div>
+        </div>
+        <div class="usnews-rank">USNews <span>#67</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.6</div>
+          <div class="review-count">132 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="oxford.html" data-region="英国">
+        <div class="rank">50</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #002147, #1A3A6A);color:#fff;">牛</div>
+        <div class="school-info">
+          <div class="school-name-zh">牛津大学</div>
+          <div class="school-name-en">University of Oxford</div>
+        </div>
+        <div class="usnews-rank">QS <span>#4</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.6</div>
+          <div class="review-count">267 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="cambridge.html" data-region="英国">
+        <div class="rank">51</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003B5C, #1A5A80);color:#fff;">剑</div>
+        <div class="school-info">
+          <div class="school-name-zh">剑桥大学</div>
+          <div class="school-name-en">University of Cambridge</div>
+        </div>
+        <div class="usnews-rank">QS <span>#5</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.5</div>
+          <div class="review-count">243 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="imperial.html" data-region="英国">
+        <div class="rank">52</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003E74, #1A5A90);color:#fff;">IC</div>
+        <div class="school-info">
+          <div class="school-name-zh">帝国理工学院</div>
+          <div class="school-name-en">Imperial College London</div>
+        </div>
+        <div class="usnews-rank">QS <span>#8</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.3</div>
+          <div class="review-count">212 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
       <a class="school-row" href="ucl.html" data-region="英国">
-        <div class="rank">5</div>
-        <div class="school-logo">UC</div>
+        <div class="rank">53</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #002855, #1a4a8a);color:#fff;">UC</div>
         <div class="school-info">
           <div class="school-name-zh">伦敦大学学院</div>
           <div class="school-name-en">University College London (UCL)</div>
@@ -540,9 +1263,24 @@
         <div class="arrow">→</div>
       </a>
 
+      <a class="school-row" href="edinburgh.html" data-region="英国">
+        <div class="rank">54</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #041E42, #1A3A60);color:#fff;">爱</div>
+        <div class="school-info">
+          <div class="school-name-zh">爱丁堡大学</div>
+          <div class="school-name-en">University of Edinburgh</div>
+        </div>
+        <div class="usnews-rank">QS <span>#27</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.0</div>
+          <div class="review-count">181 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
       <a class="school-row" href="manchester.html" data-region="英国">
-        <div class="rank">6</div>
-        <div class="school-logo">曼</div>
+        <div class="rank">55</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #660099, #4a0070);color:#fff;">曼</div>
         <div class="school-info">
           <div class="school-name-zh">曼彻斯特大学</div>
           <div class="school-name-en">University of Manchester</div>
@@ -555,9 +1293,54 @@
         <div class="arrow">→</div>
       </a>
 
+      <a class="school-row" href="kcl.html" data-region="英国">
+        <div class="rank">56</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #C4003B, #D0104A);color:#fff;">KL</div>
+        <div class="school-info">
+          <div class="school-name-zh">伦敦国王学院</div>
+          <div class="school-name-en">King's College London</div>
+        </div>
+        <div class="usnews-rank">QS <span>#40</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 3.9</div>
+          <div class="review-count">164 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="warwick.html" data-region="英国">
+        <div class="rank">57</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #3C1053, #5A1A70);color:#fff;">华</div>
+        <div class="school-info">
+          <div class="school-name-zh">华威大学</div>
+          <div class="school-name-en">University of Warwick</div>
+        </div>
+        <div class="usnews-rank">QS <span>#69</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.1</div>
+          <div class="review-count">148 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
+      <a class="school-row" href="melbourne.html" data-region="澳大利亚">
+        <div class="rank">58</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003087, #0055b3);color:#fff;">墨</div>
+        <div class="school-info">
+          <div class="school-name-zh">墨尔本大学</div>
+          <div class="school-name-en">University of Melbourne</div>
+        </div>
+        <div class="usnews-rank">QS <span>#13</span></div>
+        <div class="site-rating">
+          <div class="stars">⭐ 4.4</div>
+          <div class="review-count">178 条评价</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+
       <a class="school-row" href="sydney.html" data-region="澳大利亚">
-        <div class="rank">7</div>
-        <div class="school-logo">悉</div>
+        <div class="rank">59</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #003087, #0055b3);color:#fff;">悉</div>
         <div class="school-info">
           <div class="school-name-zh">悉尼大学</div>
           <div class="school-name-en">University of Sydney</div>
@@ -570,17 +1353,17 @@
         <div class="arrow">→</div>
       </a>
 
-      <a class="school-row" href="melbourne.html" data-region="澳大利亚">
-        <div class="rank">8</div>
-        <div class="school-logo">墨</div>
+      <a class="school-row" href="unsw.html" data-region="澳大利亚">
+        <div class="rank">60</div>
+        <div class="school-logo" style="background:linear-gradient(135deg, #FFD700, #E6B800);color:#fff;">新</div>
         <div class="school-info">
-          <div class="school-name-zh">墨尔本大学</div>
-          <div class="school-name-en">University of Melbourne</div>
+          <div class="school-name-zh">新南威尔士大学</div>
+          <div class="school-name-en">UNSW Sydney</div>
         </div>
-        <div class="usnews-rank">QS <span>#13</span></div>
+        <div class="usnews-rank">QS <span>#19</span></div>
         <div class="site-rating">
-          <div class="stars">⭐ 4.4</div>
-          <div class="review-count">178 条评价</div>
+          <div class="stars">⭐ 4.2</div>
+          <div class="review-count">162 条评价</div>
         </div>
         <div class="arrow">→</div>
       </a>
